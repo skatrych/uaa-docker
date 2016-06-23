@@ -1,6 +1,6 @@
 Dockerized UAA service, version 3.4.0
 ===========
-Docker project for Dockerizing UAA application from CF.
+Docker project for Dockerizing UAA application from CF. Please visit http://docs.cloudfoundry.org/api/uaa/#overview for UAA docs.
 
 How to:
 ------
