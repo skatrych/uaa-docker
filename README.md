@@ -4,15 +4,15 @@ Docker project for Dockerizing UAA application from CF. Please visit http://docs
 
 How to:
 ------
-1. Build docker image
+######1. Build docker image
 $ docker build -t uaa-docker:latest .
 
-2. Start uaa container and detach from your shell
+######2. Start uaa container and detach from your shell
 $ docker run -d -p 8080:8080 uaa-docker
 
-How to test APIs from shell:
+###Testing APIs from shell:
 
-1. Get token
+######1. Get token
 
 $ curl -u app:appclientsecret http://192.168.99.100:8080/oauth/token -d "grant_type=password&username=portal&password=portalpass123"
 
@@ -24,7 +24,7 @@ $ curl -u app:appclientsecret http://192.168.99.100:8080/oauth/token -d "grant_t
     "scope": "scim.userids openid cloud_controller.read password.write cloud_controller.write",
     "jti": "4daf1cfb86b34d0ebc397caf4e07c6c0"
 }
-2. Check token and decode it
+######2. Check token and decode it
 
 $ curl -u app:appclientsecret 'http://192.168.99.100:8080/check_token' -i -X POST -d 'token=YOUR_TOKEN_GOES_HERE'
 
@@ -50,4 +50,4 @@ $ curl -u app:appclientsecret 'http://192.168.99.100:8080/check_token' -i -X POS
     "revocable": false
 }
 
-3. Other API examples to be added
+######3. Other API examples to be added
