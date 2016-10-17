@@ -16,6 +16,7 @@ $ docker run -d -p 8080:8080 uaa-docker
 
 $ curl -u app:appclientsecret http://192.168.99.100:8080/oauth/token -d "grant_type=password&username=portal&password=portalpass123"
 
+[RESPONSE EXAMPLE]:
 {
     "access_token": "eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI0ZGFmMWNmYjg2YjM0ZDBlYmMzOTdjYWY0ZTA3YzZjMCIsInN1YiI6IjFiNzU0YzU0LWRiMzctNDRiMy05ZjUyLWZlZjBjM2I5NDg0MiIsInNjb3BlIjpbInNjaW0udXNlcmlkcyIsIm9wZW5pZCIsImNsb3VkX2NvbnRyb2xsZXIucmVhZCIsInBhc3N3b3JkLndyaXRlIiwiY2xvdWRfY29udHJvbGxlci53cml0ZSJdLCJjbGllbnRfaWQiOiJhcHAiLCJjaWQiOiJhcHAiLCJhenAiOiJhcHAiLCJncmFudF90eXBlIjoicGFzc3dvcmQiLCJ1c2VyX2lkIjoiMWI3NTRjNTQtZGIzNy00NGIzLTlmNTItZmVmMGMzYjk0ODQyIiwib3JpZ2luIjoidWFhIiwidXNlcl9uYW1lIjoicG9ydGFsIiwiZW1haWwiOiJwb3J0YWwiLCJhdXRoX3RpbWUiOjE0NjY2ODYwMzcsInJldl9zaWciOiJkNmI3MWU1MCIsImlhdCI6MTQ2NjY4NjAzOCwiZXhwIjoxNDY2Njg5NjM4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbImFwcCIsInNjaW0iLCJvcGVuaWQiLCJjbG91ZF9jb250cm9sbGVyIiwicGFzc3dvcmQiXX0.pYZ_ym0z-Y44B4OyI6bI2VcSY5y1woak6JgqgzlPstE",
     "token_type": "bearer",
@@ -27,7 +28,7 @@ $ curl -u app:appclientsecret http://192.168.99.100:8080/oauth/token -d "grant_t
 ######2. Check token and decode it
 
 $ curl -u app:appclientsecret 'http://192.168.99.100:8080/check_token' -i -X POST -d 'token=YOUR_TOKEN_GOES_HERE'
-
+[RESPONSE EXAMPLE]:
 {
     "user_id": "1b754c54-db37-44b3-9f52-fef0c3b94842",
     "user_name": "portal",
@@ -51,3 +52,7 @@ $ curl -u app:appclientsecret 'http://192.168.99.100:8080/check_token' -i -X POS
 }
 
 ######3. Other API examples to be added
+###Configuring UAA
+######Users
+In the given test setup of UAA, there is no Database behind it. It's using the usernames/passwords hardcoded in the configuration yaml file (see uaa.yml in the root folder of this repo). Section "scim:users:" is specifiying the users (please change it according to your needs).
+
